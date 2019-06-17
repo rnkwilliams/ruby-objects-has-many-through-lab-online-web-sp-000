@@ -22,9 +22,10 @@ class Patient
 
     #The #appointments instance method iterates through all appointments and finds the appointments that belong to that patient.
     def appointments
-      Patient.all.select do |a|
+      Appointment.all.select do |a|
         a.patient == self
     end
+  end
 
     #Patient class needs an instance method, #doctors, that iterates over the patient's appointments
     #and collects the doctor that belongs to each appointment.
