@@ -20,19 +20,17 @@ class Patient
       @@all
     end
 
-    #The #songs instance method iterates through all songs and finds the songs that belong to that genre.
-    def songs
-      Song.all
+    #The #appointments instance method iterates through all appointments and finds the appointments that belong to that patient.
+    def appointments
+      Patient.all.select do |a|
+        a.patient == self
     end
 
-    #Genre class needs an instance method, #artists, that iterates over the genre's
-    #collection of songs and collects the artist that owns each song.
-    def artists
-      Song.all.collect do |song|
-        song.artist
+    #Patient class needs an instance method, #doctors, that iterates over the patient's appointments
+    #and collects the doctor that belongs to each appointment.
+    def doctors
+      self.appointments.collect do |a|
+        a.doctor
       end
     end
-
-
-
 end
