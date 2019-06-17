@@ -1,7 +1,6 @@
 class Patient
 
-    attr_accessor :name, :genre
-    attr_reader :song
+    attr_accessor :name, :doctor, :date
 
     #The Patient class needs a @@all class variable that begins with an empty array.
     @@all = []
@@ -14,8 +13,8 @@ class Patient
 
     def new_appointment(doctor, date)
       Appointment.new(self, doctor, date="")
-
     end
+
     #The .all class method lists each patient in the @@all class variable.
     def self.all
       @@all
